@@ -8,4 +8,5 @@ RUN bun install
 
 EXPOSE 3000
 
-CMD ["bun", "index.tsx"]
+CMD ["bun", "src/index.tsx"]
+
