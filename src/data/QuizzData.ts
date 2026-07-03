@@ -239,6 +239,157 @@ export const quizPaillason: Question[] = [
     },
 ];
 
+export const quizFestival: Question[] = [
+    {
+        id: 1,
+        question: "Comment tu viens au festival ?",
+        answers: [
+            { label: "En voiture", points: { propre: 2, chill: 1 } },
+            { label: "en camion", points: { chill: 3 } },
+            { label: "EN stop", points: { social: 2, sale: 1 } },
+            { label: "à vélo", points: { chill: 2, propre: 1 } },
+            { label: "Keh", points: { maudit: 3 } },
+        ],
+    },
+    {
+        id: 2,
+        question: "Qu'es que tu as dans ton sac",
+        answers: [
+            { label: "un kit complet", points: { propre: 3 } },
+            { label: "Canouche couteau", points: { sale: 3 } },
+            { label: "des paillettes et de l'amour", points: { dramatique: 3 } },
+            { label: "La compile parfaite pour faire des cocktails", points: { social: 2, chill: 1 } },
+            { label: "Keh", points: { maudit: 3 } },
+        ],
+    },
+    {
+        id: 3,
+        question: "Comment tu penses repartir",
+        answers: [
+            { label: "Hein quoi ? faut repartir ?", points: { chill: 3 } },
+            { label: "En légende ma gueule", points: { sale: 3 } },
+            { label: "Ambulance", points: { dramatique: 3 } },
+            { label: "Après un bon sommeil réparateur, en voiture sereinement", points: { propre: 3 } },
+            { label: "Keh", points: { maudit: 3 } },
+        ],
+    },
+    {
+        id: 4,
+        question: "Samedi 16 heures tu fais quoi ?",
+        answers: [
+            { label: "Devant le son à me régaler", points: { chill: 3 } },
+            { label: "en vrai je comate", points: { chill: 2, sale: 1 } },
+            { label: "je lance des jeux avec les copains", points: { social: 3 } },
+            { label: "Session discussion deep", points: { maudit: 2, chill: 1 } },
+            { label: "Keh", points: { maudit: 3 } },
+        ],
+    },
+    {
+        id: 5,
+        question: "Comment tu gères ton caca ?",
+        answers: [
+            { label: "Je pars en forêt à l'aise", points: { chill: 2, sale: 1 } },
+            { label: "Tard dans la nuit, en pénombre", points: { sale: 3 } },
+            { label: "Derrière la tente de mon pote pour le faire rire", points: { social: 2, dramatique: 1 } },
+            { label: "Keh", points: { maudit: 3 } },
+        ],
+    },
+    {
+        id: 6,
+        question: "Dans quel type de scène tu vas",
+        answers: [
+            { label: "Psytrance", points: { chill: 3 } },
+            { label: "Dub", points: { sale: 3 } },
+            { label: "DnB", points: { dramatique: 3 } },
+            { label: "Toutes, les énergies du monde me guident", points: { maudit: 3 } },
+        ],
+    },
+];
+export const resFestival: Result[] = [
+    {
+        name: "Festivalier Propre",
+        points: {
+            propre: 6,
+            chill: 1,
+            social: 0,
+            dramatique: 0,
+            sale: 0,
+            maudit: 0,
+        },
+        message:
+            "Tu es le festivalier propre 🧼. Tente rangée, gourde pleine, plan millimétré. Pendant que les autres survivent, toi tu optimises. On t'appelle parfois 'le GPS humain' parce que même en pleine nuit boueuse tu sais encore où sont tes affaires.",
+    },
+
+    {
+        name: "Festivalier Chill",
+        points: {
+            propre: 0,
+            chill: 6,
+            social: 1,
+            dramatique: 0,
+            sale: 0,
+            maudit: 0,
+        },
+        message:
+            "Tu es le festivalier chill 🌿. Tu n’as pas vraiment prévu le festival, le festival s’est glissé dans ta vie. Tu flottes entre les scènes comme une idée douce. On te voit souvent assis quelque part en train de dire 'ça va très bien là'.",
+    },
+
+    {
+        name: "Festivalier Social",
+        points: {
+            propre: 0,
+            chill: 1,
+            social: 6,
+            dramatique: 1,
+            sale: 0,
+            maudit: 0,
+        },
+        message:
+            "Tu es le festivalier social 🫶. Tu connais déjà la moitié du camping au bout de deux heures. Tu ne vis pas le festival, tu le coordonnes. Si quelqu’un cherche une tente, un pote ou un shot douteux, tu es l’algorithme vivant.",
+    },
+
+    {
+        name: "Festivalier Dramatique",
+        points: {
+            propre: 0,
+            chill: 0,
+            social: 1,
+            dramatique: 6,
+            sale: 1,
+            maudit: 0,
+        },
+        message:
+            "Tu es le festivalier dramatique 🎭. Chaque drop est une révélation, chaque fatigue un destin tragique. Tu ne danses pas, tu luttes émotionnellement avec le BPM. Même ton sommeil ressemble à une scène coupée d’un film intense.",
+    },
+
+    {
+        name: "Festivalier Sale",
+        points: {
+            propre: 0,
+            chill: 0,
+            social: 0,
+            dramatique: 1,
+            sale: 6,
+            maudit: 1,
+        },
+        message:
+            "Tu es le festivalier sale 🌧️. La boue t’a adopté avant même ton arrivée. Organisation inexistante, mais instinct maximal. Tu vis dans le chaos confortable, celui où retrouver ses affaires devient une quête secondaire optionnelle.",
+    },
+
+    {
+        name: "Festivalier Maudit",
+        points: {
+            propre: 0,
+            chill: 0,
+            social: 0,
+            dramatique: 1,
+            sale: 1,
+            maudit: 6,
+        },
+        message:
+            "Tu es le festivalier maudit 🌑. On ne sait pas si tu as acheté un billet ou été invoqué par la programmation. Tu apparaîs et disparais entre deux basses. Les gens disent t’avoir vu… mais jamais au même endroit.",
+    },
+];
 
 export const quizOrteil: Question[] = [
     {
@@ -514,6 +665,7 @@ export const resOrteil: Result[] = [
 ];
 
 
+
 export const quizzRegistry: QuizzEntry[] = [
     {
         id: "paillason",
@@ -523,10 +675,10 @@ export const quizzRegistry: QuizzEntry[] = [
         results: resPaillason,
     },
     {
-        id: "orteils",
-        title: "Quel orteil es-tu ?",
-        description: "Découvre quel orteil sommeille en toi à travers quelques questions.",
-        questions: quizOrteil,
-        results: resOrteil,
+        id: "festivalier",
+        title: "Quel types de festivalier es-tu ?",
+        description: "Découvre quel festivalier sommeille en toi à travers quelques questions.",
+        questions: quizFestival,
+        results: resFestival,
     },
 ];
