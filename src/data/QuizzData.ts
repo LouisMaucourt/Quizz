@@ -4,6 +4,7 @@ type Result = {
     name: string;
     points: Record<string, number>;
     message: string;
+    img?:string
 };
 
 export type QuizzEntry = {
@@ -16,26 +17,28 @@ export type QuizzEntry = {
 
 export const resPaillason: Result[] = [
     {
-        name: "Propre Paillasson",
+        name: "Paillasson Propre",
         points: {
             propre: 6,
             sale: 1,
             dramatique: 0,
             maudit: 1,
         },
+        img: "p-clean.jpg",
         message:
-            "Tu es un paillasson propre 🧼. Toujours impeccable, toujours aligné, tu prends ton rôle très au sérieux. Les gens hésitent à t’utiliser tellement tu sembles neuf. La poussière te respecte, la boue te craint, et tu rêves secrètement d’un hall d’entrée parfaitement rangé.",
+            "Tu es un paillasson propre. Quand on te marche dessus des mains paillasonneuse vienne netoyer la chaussure. Merci de ton travail <3",
     },
     {
-        name: "Sale Paillasson",
+        name: "Paillasson Sale",
         points: {
             propre: 0,
             sale: 6,
             dramatique: 1,
             maudit: 1,
         },
+        img: "p-mud.jpg",
         message:
-            "Tu es un paillasson sale 🌧️. Tu accumules la boue comme d’autres collectionnent les timbres. Chaque trace raconte une histoire, souvent humide, parfois inquiétante. Tu sens un peu la terre mouillée et le destin bancal, mais c’est ce qui fait ton charme brut.",
+            "Tu es un paillasson dégeuuuuuuuuu ( qui vote pour les voleurs du FN). Tu accumules la boue comme d’autres collectionnent les timbres. Prend une douche par pitiéééé.",
     },
     {
         name: "Dramatique Paillasson",
@@ -45,19 +48,21 @@ export const resPaillason: Result[] = [
             dramatique: 6,
             maudit: 1,
         },
+        img: "p-theatre.jpg",
         message:
-            "Tu es un paillasson dramatique 🎭. Chaque pas sur toi est un événement. Tu ne te fais pas marcher dessus, tu performes. Ton existence entière est une scène où la poussière, les talons et les semelles jouent leur rôle dans une tragédie domestique permanente.",
+            "Tu es un paillasson Queeen. Tu ne te fais pas marcher dessus, tu performes.",
     },
     {
-        name: "mMuditPaillasson",
+        name: "Paillasson Maudit",
         points: {
             propre: 0,
             sale: 1,
             dramatique: 1,
             maudit: 6,
         },
+        img: "p-cursed.jpg",
         message:
-            "Tu es un paillasson maudit 🌑. Personne ne sait depuis combien de temps tu es là. Tu observes les allées et venues avec une patience inquiétante. La nuit, tu sembles absorber plus que la saleté. Certains disent que tes fibres murmurent quand il pleut.",
+            "Tu es un paillasson maudit. Personne ne sait depuis combien de temps tu es là, et personne ne veut plus en savoir. Vana Anti fasciti",
     },
 ];
 export const quizPaillason: Question[] = [
@@ -305,6 +310,201 @@ export const quizFestival: Question[] = [
         ],
     },
 ];
+
+export const quizVille: Question[] = [
+    {
+        id: 1,
+        question: "T'as combien de temps de retard à un rendez-vous, en moyenne ?",
+        answers: [
+            {
+                label: "Genre 45 min tranquillooo",
+                points: { marseille: 3 },
+            },
+            {
+                label: "10-15 min, on va pas se stresser non plus",
+                points: { toulouse: 3, nantes: 3 },
+            },
+        ],
+    },
+    {
+        id: 3,
+        question: "Pourquoi tu veux vraiment partir de là où t'es ?",
+        answers: [
+            {
+                label: "J'étouffe un peu, trop de gens, faut que ça change",
+                points: { nantes: 3, toulouse: 2 },
+            },
+            {
+                label: "Je veux du soleil",
+                points: { marseille: 3, toulouse :2 },
+            },
+            {
+                label: "Je veux un vrai nouveau départ où presque personne me connaît (à part mes coloc d'amour, surtout celui qui a fait ce site scientifique)",
+                points: { toulouse: 3 },
+            },
+        ],
+    },
+    {
+        id: 8,
+        question: "Tu préfères quel style d'architecture ?",
+        answers: [
+            {
+                label: "Immeubles haussmanniens",
+                points: { nantes: 3 },
+            },
+            {
+                label: "Ruelles étroites, mignonnes, façades qui penchent un peu",
+                points: { marseille: 3 },
+            },
+            {
+                label: "Brique partout",
+                points: { toulouse: 3 },
+            },
+        ],
+    },
+    {
+        id: 5,
+        question: "Il fait 35 degrés, tu fais quoi de ta journée ?",
+        answers: [
+            {
+                label: "Je reste au frais, volets fermés, ventilo",
+                points: { nantes: 3, toulouse: 2 },
+            },
+            {
+                label: "Direction la mer, peu importe l'heure",
+                points: { marseille: 4, nantes: 2 },
+            },
+            {
+                label: "Direction gros cailloux haut",
+                points: { toulouse: 3 },
+            },
+        ],
+    },
+    {
+        id: 7,
+        question: "T'as un weekend libre sans plan, tu fais quoi ?",
+        answers: [
+            {
+                label: "Expo, brocante, un café sympa que je viens de découvrir",
+                points: { nantes: 3 },
+            },
+            {
+                label: "Improviser un truc avec les potes, direction la mer",
+                points: { marseille: 3 },
+            },
+            {
+                label: "Rando dans les gros cailloux",
+                points: { toulouse: 3 },
+            },
+        ],
+    },
+    {
+        id: 9,
+        question: "Tu cherches surtout à te rapprocher de quoi, en vrai ?",
+        answers: [
+            {
+                label: "D'une scène culturelle qui bouge sans être too much",
+                points: { nantes: 3, toulouse: 3 },
+            },
+            {
+                label: "De l'inconnu total, un endroit où personne ne me connaît (à part mes coloc d'amour, surtout celui qui a fait ce site scientifique)",
+                points: { toulouse: 3 },
+            },
+            {
+                label: "Du nouveau mais pas trop, un cercle qui existe déjà",
+                points: { marseille: 3, nantes: 3 },
+            },
+        ],
+    },
+    {
+        id: 10,
+        question: "Quel biome tu préfères ?",
+        answers: [
+            {
+                label: "Mer",
+                points: { nantes: 3, marseille: 5 },
+            },
+            {
+                label: "Montagne",
+                points: { marseille: 3, toulouse: 5 },
+            },
+            {
+                label: "Fleuve",
+                points: { nantes: 3, toulouse:3 },
+            },
+            {
+                label: "Forêt",
+                points: { toulouse: 3, nantes: 3 },
+            },
+        ],
+    },
+    {
+        id: 11,
+        question: "Tu préfères quelle boisson ?",
+        answers: [
+            {
+                label: "Ricard",
+                points: { marseille: 3, toulouse: 2 },
+            },
+            {
+                label: "Un petit vin de Fronton",
+                points: { toulouse: 3 },
+            },
+            {
+                label: "Muscadet",
+                points: { nantes: 3 },
+            },
+        ],
+    },
+    {
+        id: 12,
+        question: "Et en vrai ton coeur il te dit quoi",
+        answers: [
+            {
+                label: "Toulouse",
+                points: { toulouse: 10 },
+            },
+            {
+                label: "Marseille",
+                points: { marseille: 10 },
+            },
+            {
+                label: "Nantes",
+                points: { nantes: 10 },
+            },
+            {
+                label: "Peu importe en vrai :3",
+                points: { nantes: 1, marseille: 1, toulouse: 1 },
+            },
+        ],
+    },
+];
+export const resVille: Result[] = [
+    {
+        name: "Nantes",
+        points: {
+            nantes: 35,
+        },
+        img: "nantes.jpg",
+        message: "Ton destin est scéllé",
+    },
+    {
+        name: "Marseille",
+        points: {
+            marseille: 35,
+        },
+        img: "v-marseille.jpg",
+        message: "Ton destin est scéllé",
+    },
+    {
+        name: "Toulouse",
+        points: {
+            toulouse: 35,
+        },
+        img: "toulouse.jpg",
+        message: "Ton destin est scéllé",
+    },
+];
 export const resFestival: Result[] = [
     {
         name: "Festivalier Propre",
@@ -312,12 +512,13 @@ export const resFestival: Result[] = [
             propre: 6,
             chill: 1,
             social: 0,
-            dramatique: 0,
+            intensif: 0,
             sale: 0,
             maudit: 0,
         },
+        img: "f-clean.jpg",
         message:
-            "Tu es le festivalier propre 🧼. Tente rangée, gourde pleine, plan millimétré. Pendant que les autres survivent, toi tu optimises. On t'appelle parfois 'le GPS humain' parce que même en pleine nuit boueuse tu sais encore où sont tes affaires.",
+            "Tu es le festivalier propre. Mais bon quand meme aspirer tout le champs à l'aspirateur c'est un peu trop...",
     },
 
     {
@@ -326,12 +527,12 @@ export const resFestival: Result[] = [
             propre: 0,
             chill: 6,
             social: 1,
-            dramatique: 0,
+            intensif: 0,
             sale: 0,
             maudit: 0,
         },
-        message:
-            "Tu es le festivalier chill 🌿. Tu n’as pas vraiment prévu le festival, le festival s’est glissé dans ta vie. Tu flottes entre les scènes comme une idée douce. On te voit souvent assis quelque part en train de dire 'ça va très bien là'.",
+        img: "f-chill.jpg",
+        message: "Just a chill Guy. Passe moi le joint maannn",
     },
 
     {
@@ -340,26 +541,28 @@ export const resFestival: Result[] = [
             propre: 0,
             chill: 1,
             social: 6,
-            dramatique: 1,
+            intensif: 1,
             sale: 0,
             maudit: 0,
         },
+        img: "f-social.jpg",
         message:
-            "Tu es le festivalier social 🫶. Tu connais déjà la moitié du camping au bout de deux heures. Tu ne vis pas le festival, tu le coordonnes. Si quelqu’un cherche une tente, un pote ou un shot douteux, tu es l’algorithme vivant.",
+            "Tu es le festivalier avec plein de copains, ah ça fait plaisir de voir un peu de philantropie dans ce monde, coeur sur toi mon doudouuuu.",
     },
 
     {
-        name: "Festivalier Dramatique",
+        name: "Festivalier intensif",
         points: {
             propre: 0,
             chill: 0,
             social: 1,
-            dramatique: 6,
+            intensif: 6,
             sale: 1,
             maudit: 0,
         },
+        img: "f-gandlf.jpg",
         message:
-            "Tu es le festivalier dramatique 🎭. Chaque drop est une révélation, chaque fatigue un destin tragique. Tu ne danses pas, tu luttes émotionnellement avec le BPM. Même ton sommeil ressemble à une scène coupée d’un film intense.",
+            "Tu es le festivalier intensif. Chaque drop est une révélation, chaque fatigue un destin tragique. Calmos sur la drogas quand même mon copaine ",
     },
 
     {
@@ -368,299 +571,28 @@ export const resFestival: Result[] = [
             propre: 0,
             chill: 0,
             social: 0,
-            dramatique: 1,
+            intensif: 1,
             sale: 6,
             maudit: 1,
         },
+        img: "f-dirty.jpg",
         message:
-            "Tu es le festivalier sale 🌧️. La boue t’a adopté avant même ton arrivée. Organisation inexistante, mais instinct maximal. Tu vis dans le chaos confortable, celui où retrouver ses affaires devient une quête secondaire optionnelle.",
+            "Tu es le festivalier sale. Si tes ex-voisin sont partis c'est de ta faute, par pitié prend une douche, bois un verre d'eau, un thé, nimporte quoi mais met toi doux, pour mettre douce les gens à coté de toi",
     },
 
     {
-        name: "Festivalier Maudit",
+        name: "Junkie",
         points: {
             propre: 0,
             chill: 0,
             social: 0,
-            dramatique: 1,
+            intensif: 1,
             sale: 1,
             maudit: 6,
         },
+        img: "f-randomperson.jpeg",
         message:
-            "Tu es le festivalier maudit 🌑. On ne sait pas si tu as acheté un billet ou été invoqué par la programmation. Tu apparaîs et disparais entre deux basses. Les gens disent t’avoir vu… mais jamais au même endroit.",
-    },
-];
-
-export const quizOrteil: Question[] = [
-    {
-        id: 1,
-        question: "Dans une chaussure, quel rôle veux-tu jouer ?",
-        answers: [
-            {
-                label: "Porter tout le poids sans broncher",
-                points: { stable: 3 },
-            },
-            {
-                label: "Créer des incidents diplomatiques à chaque meuble",
-                points: { impulsif: 3 },
-            },
-            {
-                label: "Être au centre sans trop le montrer",
-                points: { central: 3 },
-            },
-            {
-                label: "Exister discrètement, presque en option",
-                points: { oublié: 3 },
-            },
-            {
-                label: "Partir sur le côté sans prévenir",
-                points: { chaotique: 3 },
-            },
-        ],
-    },
-    {
-        id: 2,
-        question: "Comment réagis-tu face à un meuble dans le noir ?",
-        answers: [
-            {
-                label: "J’absorbe le choc avec dignité",
-                points: { stable: 3 },
-            },
-            {
-                label: "Je fonce dedans comme un idiot inspiré",
-                points: { impulsif: 3 },
-            },
-            {
-                label: "Je calcule l’angle exact de la douleur",
-                points: { central: 3 },
-            },
-            {
-                label: "Personne ne remarque que j’ai souffert",
-                points: { oublié: 3 },
-            },
-            {
-                label: "Je déclenche une catastrophe générale",
-                points: { chaotique: 3 },
-            },
-        ],
-    },
-    {
-        id: 3,
-        question: "Quelle sensation te définit ?",
-        answers: [
-            {
-                label: "Pression constante et rassurante",
-                points: { stable: 3 },
-            },
-            {
-                label: "Impact soudain et regrettable",
-                points: { impulsif: 3 },
-            },
-            {
-                label: "Équilibre parfait mais silencieux",
-                points: { central: 3 },
-            },
-            {
-                label: "Léger abandon existentiel",
-                points: { oublié: 3 },
-            },
-            {
-                label: "Panique latérale permanente",
-                points: { chaotique: 3 },
-            },
-        ],
-    },
-    {
-        id: 4,
-        question: "Quelle est ta place idéale ?",
-        answers: [
-            {
-                label: "Devant, en leader naturel",
-                points: { stable: 3 },
-            },
-            {
-                label: "Juste derrière, prêt à agir trop vite",
-                points: { impulsif: 3 },
-            },
-            {
-                label: "Pile au milieu du dispositif",
-                points: { central: 3 },
-            },
-            {
-                label: "Là où personne regarde",
-                points: { oublié: 3 },
-            },
-            {
-                label: "Au bord du chaos",
-                points: { chaotique: 3 },
-            },
-        ],
-    },
-    {
-        id: 5,
-        question: "Quelle est ta plus grande peur d’orteil ?",
-        answers: [
-            {
-                label: "Que tout repose encore sur moi",
-                points: { stable: 3 },
-            },
-            {
-                label: "Un coin de table mal placé",
-                points: { impulsif: 3 },
-            },
-            {
-                label: "Perdre mon équilibre esthétique",
-                points: { central: 3 },
-            },
-            {
-                label: "Être oublié même par le pied",
-                points: { oublié: 3 },
-            },
-            {
-                label: "Être coincé dans une chaussette trouée",
-                points: { chaotique: 3 },
-            },
-        ],
-    },
-    {
-        id: 6,
-        question: "Ton rapport à la marche ?",
-        answers: [
-            {
-                label: "Je guide tout le monde",
-                points: { stable: 3 },
-            },
-            {
-                label: "Je provoque des accidents mineurs",
-                points: { impulsif: 3 },
-            },
-            {
-                label: "Je maintiens la structure",
-                points: { central: 3 },
-            },
-            {
-                label: "Je suis là, techniquement",
-                points: { oublié: 3 },
-            },
-            {
-                label: "Je glisse parfois sans raison",
-                points: { chaotique: 3 },
-            },
-        ],
-    },
-    {
-        id: 7,
-        question: "Comment te voient les autres orteils ?",
-        answers: [
-            {
-                label: "Comme un pilier",
-                points: { stable: 3 },
-            },
-            {
-                label: "Comme un problème récurrent",
-                points: { impulsif: 3 },
-            },
-            {
-                label: "Comme une présence centrale rassurante",
-                points: { central: 3 },
-            },
-            {
-                label: "Comme… attends, t’es qui déjà ?",
-                points: { oublié: 3 },
-            },
-            {
-                label: "Comme une anomalie latérale",
-                points: { chaotique: 3 },
-            },
-        ],
-    },
-    {
-        id: 8,
-        question: "Comment veux-tu finir ta journée d’orteil ?",
-        answers: [
-            {
-                label: "Reposé après avoir porté le monde",
-                points: { stable: 3 },
-            },
-            {
-                label: "Légèrement blessé mais fier",
-                points: { impulsif: 3 },
-            },
-            {
-                label: "Parfaitement aligné dans une chaussette propre",
-                points: { central: 3 },
-            },
-            {
-                label: "Toujours là, mais personne ne sait trop pourquoi",
-                points: { oublié: 3 },
-            },
-            {
-                label: "En dépassant bizarrement de la couette",
-                points: { chaotique: 3 },
-            },
-        ],
-    },
-];
-export const resOrteil: Result[] = [
-    {
-        name: "Gros Orteil",
-        points: {
-            stable: 6,
-            impulsif: 1,
-            central: 1,
-            oublié: 0,
-            chaotique: 0,
-        },
-        message:
-            "Tu es le gros orteil 👣. Le socle. Le pilier. Le vieux sage du pied. Tout repose sur toi et tu l’acceptes avec une dignité presque administrative. Sans toi, c’est la chute. Littéralement.",
-    },
-    {
-        name: "Deuxieme Orteil",
-        points: {
-            stable: 1,
-            impulsif: 6,
-            central: 1,
-            oublié: 0,
-            chaotique: 1,
-        },
-        message:
-            "Tu es le deuxième orteil ⚡. Tu fonces avant de réfléchir. Tu es responsable d’au moins 73% des collisions contre les meubles. Tu vis vite, tu souffres fort, et tu apprends rarement.",
-    },
-    {
-        name: "Milieu Orteil",
-        points: {
-            stable: 1,
-            impulsif: 1,
-            central: 6,
-            oublié: 1,
-            chaotique: 0,
-        },
-        message:
-            "Tu es l’orteil du milieu 🎯. Tu maintiens l’ordre au centre du chaos podologique. Ni trop visible, ni trop effacé. Tu es l’équilibre incarné. Une colonne vertébrale, mais pour les pieds.",
-    },
-    {
-        name: "Annulaire Orteil",
-        points: {
-            stable: 0,
-            impulsif: 1,
-            central: 1,
-            oublié: 6,
-            chaotique: 1,
-        },
-        message:
-            "Tu es l’orteil annulaire 🌫️. Beaucoup oublient ton existence jusqu’à ce qu’ils comptent vraiment. Tu es discret, un peu mélancolique, mais tu tiens ta place comme une note de bas de page essentielle.",
-    },
-    {
-        name: "petitOrteil",
-        points: {
-            stable: 0,
-            impulsif: 2,
-            central: 0,
-            oublié: 1,
-            chaotique: 6,
-        },
-        message:
-            "Tu es le petit orteil 🌀. Petit, fragile, mais agent officiel du chaos. Tu te cognes partout avec une précision presque magique. Personne ne te respecte jusqu’au jour où tu heurtes un coin de table et fais plier tout le corps.",
+            "C'est le signe, tiens je te passe le contact numéro de Drogue Info Service : 08 00 23 13 13. Les gens s'inquiètent pour toi...",
     },
 ];
 
@@ -677,8 +609,15 @@ export const quizzRegistry: QuizzEntry[] = [
     {
         id: "festivalier",
         title: "Quel types de festivalier es-tu ?",
-        description: "Découvre quel festivalier sommeille en toi à travers quelques questions.",
+        description: "Découvre la vérité sur toi...",
         questions: quizFestival,
         results: resFestival,
+    },
+    {
+        id: "city",
+        title: "Dans quel ville iras-tu ?",
+        description: "Écoute ton destin",
+        questions: quizVille,
+        results: resVille,
     },
 ];

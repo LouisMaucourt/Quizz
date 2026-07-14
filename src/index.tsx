@@ -3,6 +3,17 @@ import index from "./index.html";
 
 const server = serve({
     routes: {
+        "/img/*": async (req) => {
+            const url = new URL(req.url);
+            const filename = url.pathname.replace("/img/", "");
+            const filePath = `./public/${filename}`; 
+            const file = Bun.file(filePath);
+
+            if (await file.exists()) {
+                return new Response(file);
+            }
+            return new Response("Not found", { status: 404 });
+        },
         "/*": index,
     },
 

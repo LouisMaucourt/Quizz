@@ -15,12 +15,14 @@ export type Res = {
     name: string,
     points: Record<string, number>,
     message: string,
+    img:string
 }
 type QuizzProps = {
     title: string,
     data: Question[];
     res: Res[]
 }
+
 
 export const Quizz = ({ title, data, res }: QuizzProps) => {
     const [score, setScore] = useState<Record<string, number>>({})
@@ -41,13 +43,19 @@ export const Quizz = ({ title, data, res }: QuizzProps) => {
 
     const getTotalMax = (questions: Question[]) => {
         const total: Record<string, number> = {}
-        for (const q of questions)
-            for (const a of q.answers)
-                for (const key in a.points)
-                    total[key] = (total[key] ?? 0) + a.points[key]
+        for (const q of questions) {
+            const maxPerKey: Record<string, number> = {}
+            for (const a of q.answers) {
+                for (const key in a.points) {
+                    maxPerKey[key] = Math.max(maxPerKey[key] ?? 0, a.points[key])
+                }
+            }
+            for (const key in maxPerKey) {
+                total[key] = (total[key] ?? 0) + maxPerKey[key]
+            }
+        }
         return total
     }
-
     const getBestMatch = (score: Record<string, number>, res: Res[]) => {
         if (res.length === 0) return null
         let best = res[0]
@@ -117,7 +125,8 @@ export const Quizz = ({ title, data, res }: QuizzProps) => {
                     <p className="text-xs opacity-40 uppercase tracking-widest">Votre profil</p>
                     {result && (
                         <>
-                            <h2 className="text-3xl md:text-4xl font-medium">{result.name}</h2>
+                                <h2 className="text-3xl md:text-4xl font-medium">{result.name}</h2>
+                                <img src={`../img/${result.img}`}></img>
                             <p className="opacity-60 leading-relaxed mb-2">{result.message}</p>
                         </>
                     )}
