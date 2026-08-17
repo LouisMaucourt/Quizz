@@ -43,7 +43,7 @@ export function DeleteQuiz({ quiz, onDeleted, onClose }: DeleteQuizProps) {
                 </div>
                 <p className="font-medium mb-1">Supprimer ce super quiz ?</p>
                 <p className="text-sm mb-6">
-                    <strong>{quiz.title}</strong> sera définitivement supprimé. Cette action est irréversible.
+                    Ici tout le monde a les pleins pouvoir, alors n'oublie pas que des des grands pouvoir impliques de grandes responsabilité <br/><strong>{quiz.title}</strong> sera définitivement supprimé. <br/>Es-tu sur de vouloir le supprimer ?
                 </p>
                 {error && <p className="text-red-500 text-xs mb-3">{error}</p>}
                 <div className="flex gap-3">
