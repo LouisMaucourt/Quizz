@@ -1,27 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { Button } from "./ui/Button";
+import { Button } from "@/components/ui/Button";
+import { Answer, QuizzProps, Res } from "@/type";
+import { getBestMatch } from "src/utilis";
 
-export type Answer = {
-    label: string;
-    points: Record<string, number>;
-}
-export type Question = {
-    id: number;
-    question: string;
-    answers: Answer[];
-}
-export type Res = {
-    name: string,
-    points: Record<string, number>,
-    message: string,
-    img:string
-}
-type QuizzProps = {
-    title: string,
-    data: Question[];
-    res: Res[]
-}
 
 
 export const Quizz = ({ title, data, res }: QuizzProps) => {
@@ -41,47 +23,8 @@ export const Quizz = ({ title, data, res }: QuizzProps) => {
         setCurrentIndex((prev) => prev + 1)
     }
 
-    const getTotalMax = (questions: Question[]) => {
-        const total: Record<string, number> = {}
-        for (const q of questions) {
-            const maxPerKey: Record<string, number> = {}
-            for (const a of q.answers) {
-                for (const key in a.points) {
-                    maxPerKey[key] = Math.max(maxPerKey[key] ?? 0, a.points[key])
-                }
-            }
-            for (const key in maxPerKey) {
-                total[key] = (total[key] ?? 0) + maxPerKey[key]
-            }
-        }
-        return total
-    }
-    const getBestMatch = (score: Record<string, number>, res: Res[]) => {
-        if (res.length === 0) return null
-        let best = res[0]
-        let bestDistance = Infinity
-        for (const result of res) {
-            let distance = 0
-            for (const key in score)
-                distance += Math.abs((score[key] ?? 0) - (result.points[key] ?? 0))
-            if (distance < bestDistance) {
-                bestDistance = distance
-                best = result
-            }
-        }
-        return best
-    }
-
-    const getPercent = (score: Record<string, number>, totalMax: Record<string, number>) => {
-        const percent: Record<string, number> = {}
-        for (const key in score) {
-            percent[key] = ((score[key] ?? 0) / (totalMax[key] ?? 1)) * 100
-        }
-        return percent
-    }
 
     const isFinished = currentIndex >= data.length
-    const totalMax = getTotalMax(data)
     const result = isFinished ? getBestMatch(score, res) : null
     const progress = Math.round((currentIndex / data.length) * 100)
 
@@ -90,7 +33,7 @@ export const Quizz = ({ title, data, res }: QuizzProps) => {
             <h2 className="text-2xl mb-3.5 uppercase font-bold text-center">{title}</h2>
             <div className="w-full h-1 bg-white rounded mb-6">
                 <div
-                    className="h-1 bg-black rounded transition-all duration-300"
+                    className="h-1 bg-green-600 rounded transition-all duration-300"
                     style={{ width: `${isFinished ? 100 : progress}%` }}
                 />
             </div>
@@ -126,27 +69,12 @@ export const Quizz = ({ title, data, res }: QuizzProps) => {
                     {result && (
                         <>
                                 <h2 className="text-3xl md:text-4xl font-medium">{result.name}</h2>
-                                <img src={`../img/${result.img}`}></img>
+                                {result.img && <img src={`../img/${result.img}`}></img>}
                             <p className="opacity-60 leading-relaxed mb-2">{result.message}</p>
                         </>
                     )}
 
-                    <div className="w-full mt-4">
-                        {Object.entries(getPercent(score, totalMax)).map(([key, value]) => (
-                            <div key={key} className="mb-3 text-left">
-                                <div className="flex justify-between text-xs opacity-50 mb-1">
-                                    <span>{key}</span>
-                                    <span>{Math.round(value)}%</span>
-                                </div>
-                                <div className="w-full h-1.5 bg-white rounded-full overflow-hidden">
-                                    <div
-                                        className="h-1.5 bg-blue-300 rounded-full transition-all duration-500"
-                                        style={{ width: `${value}%` }}
-                                    />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                   
 
                         <div className="flex gap-3 mt-6 justify-center flex-wrap">
                             <Link
