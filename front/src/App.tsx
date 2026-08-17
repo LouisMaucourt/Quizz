@@ -47,7 +47,7 @@ export function App() {
             </button>
             <span className="text-3xl mb-auto">{q.icon}</span>
             <div className="text-left mt-3">
-              <p className="text-xl font-bold text-white">{q.title}</p>
+              <p className="md:text-xl text-base font-bold text-white">{q.title}</p>
               <p className="text-xs text-white/50">{q.questions.length} questions</p>
             </div>
           </Button>
