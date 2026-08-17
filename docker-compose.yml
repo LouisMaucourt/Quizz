@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
     depends_on:
       db:
-        condition: service_healthy
+        condition:  
     env_file: .env
 
   front:

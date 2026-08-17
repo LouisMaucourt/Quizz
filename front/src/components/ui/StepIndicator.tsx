@@ -39,7 +39,7 @@ export const StepIndicator = ({ step, setStep, onSubmit }: StepIndicatorProps) =
                             >
                                 <span
                                     className={`size-9 rounded-full flex items-center justify-center transition-all ${isActive || isCompleted
-                                        ? "border-violet-600 bg-violet-600 text-white"
+                                        ? "border-violet-400 bg-violet-400 text-white"
                                         : "border-gray-300 bg-white/20 text-gray-200"
                                         }`}
                                 >
@@ -61,7 +61,7 @@ export const StepIndicator = ({ step, setStep, onSubmit }: StepIndicatorProps) =
                             {index < steps.length - 1 && (
                                 <div
                                     className={`md:mx-3 mx-1.5 md:mb-6 md:h-1 sm:mb-6 h-0.5 flex-1 transition-colors ${index < currentIndex
-                                        ? "bg-violet-600"
+                                        ? "bg-violet-400"
                                         : "bg-gray-200"
                                         }`}
                                 />

@@ -189,13 +189,10 @@ export const QuizzForm = ({ initialData, onSubmit, submitting, error, mode = "cr
                         <div className="flex flex-col gap-8 mx-auto max-w-5xl w-full">
                             {questions.map((question, index) => (
                                 <div key={index}>
-                                    <div className="mb-4 text-sm opacity-50">
-                                        Question {index + 1}
-                                    </div>
                                     <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 w-full mx-auto">
                                         <textarea
                                             className="w-full bg-transparent border-b border-white/30 text-xl font-medium mb-4 pb-2 outline-none placeholder-white/40 resize-none"
-                                            placeholder="Intitulé de la question"
+                                            placeholder={` Question ${index + 1}`}
                                             value={question.question}
                                             onChange={(e) => updateQuestion(index, { question: e.target.value })}
                                             rows={2}

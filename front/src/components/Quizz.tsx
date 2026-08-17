@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { Button } from "@/components/ui/Button";
 import { Answer, QuizzProps, Res } from "@/type";
 import { getBestMatch } from "src/utilis";
+import { FaceGrinning, UndoDot } from "lucide-react";
 
 
 
@@ -33,7 +34,7 @@ export const Quizz = ({ title, data, res }: QuizzProps) => {
             <h2 className="text-2xl mb-3.5 uppercase font-bold text-center">{title}</h2>
             <div className="w-full h-1 bg-white rounded mb-6">
                 <div
-                    className="h-1 bg-green-600 rounded transition-all duration-300"
+                    className="h-1 bg-violet-400 rounded transition-all duration-300"
                     style={{ width: `${isFinished ? 100 : progress}%` }}
                 />
             </div>
@@ -76,20 +77,24 @@ export const Quizz = ({ title, data, res }: QuizzProps) => {
 
                    
 
-                        <div className="flex gap-3 mt-6 justify-center flex-wrap">
-                            <Link
-                                to="/"
-                                className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-xl bg-white/15 border border-white/25 text-white hover:bg-white/25 transition-all active:scale-95"
+                        <div className="flex flex-col gap-3 mt-6 justify-center flex-wrap">
+                            <Button
+                                size="small"
+                                to={`/`}
+                                className="text-2xs"
+                                icon={UndoDot}
                             >
-                                ← Menu
-                            </Link>
-                            <button
+                                Revenir au menu principal
+                            </Button>
+                            
+                            <Button
+                                size="small"
                                 onClick={() => { setScore({}); setCurrentIndex(0); }}
-                                className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-xl border border-white/20 text-white/70 hover:text-white hover:border-white/50 transition-all"
+                                className="text-2xs"
+                                icon={FaceGrinning}
                             >
-                                ↺ Recommencer
-                            </button>
-
+                                Recommencer
+                            </Button>
                         </div>
                 </div>
             )}
