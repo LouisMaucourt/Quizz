@@ -18,11 +18,6 @@ services:
       db:
         condition: service_healthy
     env_file: .env
-    volumes:
-      - ./back:/app
-      - /app/node_modules
-    ports:
-      - "4000:4000"
 
   front:
     build: ./front
@@ -30,14 +25,9 @@ services:
     depends_on:
       - back
     environment:
-      - API_URL=http://back:4000
-      - PORT=3000
+      API_URL: http://back:4000
+      PORT: 3000
     env_file: .env
-    volumes:
-      - ./front:/app
-      - /app/node_modules
-    ports:
-      - "3000:3000"
 
 volumes:
   db_data:
